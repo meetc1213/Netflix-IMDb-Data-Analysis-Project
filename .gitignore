@@ -1,0 +1,49 @@
+# -----------------------------
+# Python related
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg
+*.egg-info/
+dist/
+build/
+
+# -----------------------------
+# Virtual environment
+# -----------------------------
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# -----------------------------
+# Jupyter Notebook
+# -----------------------------
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# -----------------------------
+# Data files
+# -----------------------------
+data/
+*.db
+*.sqlite
+*.csv  # optional: if you don’t want to commit even sample CSVs
+
+# -----------------------------
+# OS / Editor files
+# -----------------------------
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
