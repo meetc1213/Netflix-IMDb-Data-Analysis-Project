@@ -1,0 +1,2 @@
+total_movies,best_model,best_rmse,best_mae,best_r2,avg_actual_rating,avg_predicted_rating,median_error,excellent_predictions,good_predictions,fair_predictions,poor_predictions
+15789,Gradient Boosting,0.8807018272685826,0.6495796518223362,0.5177306676849616,5.828823864715941,5.8391193660374485,0.4938406412809728,7981,4647,2599,562
