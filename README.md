@@ -4,6 +4,12 @@
 2. ML.ipynb uses the some common dataset features and derived features (like top directors) to predict the IMDb rating. Multiple regression algorithms are compared: Linear, Ridge, Lasso, Random Forest, and Gradient Boosting.
 3. A Power BI dashboard is also created. See powerbi_report.pbix
 
+## Technologies
+
+- Machine Learning: Python, Scikit-learn
+- Data Handling: SQL, Pandas
+- Visualization: MatPlotLib, Power BI
+
 ## Setup
 
 1. Download the full CSV datasets from Kaggle:
