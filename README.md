@@ -1,6 +1,6 @@
 # Netflix & IMDb Analysis
 
-*What makes a movie highly rated? How has cinema evolved over decades? This project analyses 95,000+ IMDb titles and Netflix's full catalogue to answer these questions through exploration, machine learning, and an interactive dashboard.*
+*What makes a movie highly rated? How has cinema evolved over decades? This project analyses IMDb titles and Netflix's full catalogue to answer these questions through exploration, machine learning, and an interactive dashboard.*
 
 ## What This Project Analyses
 
