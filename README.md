@@ -16,10 +16,32 @@
 - The USA dominates Netflix content (4,000+ titles), followed by India and the UK
 - Tree-based models significantly outperform linear models, suggesting non-linear relationships between a film's features and its rating
 
+## Architecture
+
+```
+Kaggle CSVs
+    │
+    ▼
+Azure Blob Storage (raw-data/)       ← raw source files
+    │
+    │  Azure Data Factory pipeline
+    │  "IngestRawToProcessed"
+    │  3 sequential Copy activities
+    ▼
+Azure Blob Storage (processed/)      ← cleaned, pipeline-verified data
+    │
+    ▼
+Python Notebooks                     ← read via azure-storage-blob SDK
+    │
+    ├── exploration.ipynb → SQLite (local, for SQL queries)
+    └── ML.ipynb          → Scikit-learn → Power BI exports
+```
+
 ## Technologies
 
+- Cloud: Azure Blob Storage, Azure Data Factory
 - Machine Learning: Python, Scikit-learn
-- Data Handling: SQL, Pandas
+- Data Handling: SQL (SQLite), Pandas
 - Visualization: Matplotlib, Seaborn, Power BI
 
 ## Setup
@@ -27,6 +49,10 @@
 1. Download the full CSV datasets from Kaggle:
    - Netflix (1 csv): https://www.kaggle.com/datasets/shivamb/netflix-shows
    - IMDb (2 csvs): https://www.kaggle.com/datasets/stefanoleone992/imdb-extensive-dataset
-2. Extract the three CSVs, keeping the same names, and place them in the `data/` folder
-3. Install dependencies with `pip install -r requirements.txt`
-4. Run `exploration.ipynb` first, then `ML.ipynb` — the exploration notebook creates the SQLite database that ML.ipynb depends on
+2. Upload the three CSVs to the `raw-data/` container in Azure Blob Storage, then run the `IngestRawToProcessed` ADF pipeline to populate the `processed/` container
+3. Create a `.env` file in the project root with your Azure connection string:
+   ```
+   AZURE_STORAGE_CONNECTION_STRING=your_connection_string_here
+   ```
+4. Install dependencies with `pip install -r requirements.txt`
+5. Run `exploration.ipynb` first, then `ML.ipynb` — the exploration notebook creates the SQLite database that ML.ipynb depends on
