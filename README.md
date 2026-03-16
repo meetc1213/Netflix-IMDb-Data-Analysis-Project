@@ -1,21 +1,32 @@
-## Details
+# Netflix & IMDb Analysis
 
-1. exploration.ipynb explores the IMDb and netflix datasets to see top directors, top actors, rating trends across time, past decades, etc.
-2. ML.ipynb uses the some common dataset features and derived features (like top directors) to predict the IMDb rating. Multiple regression algorithms are compared: Linear, Ridge, Lasso, Random Forest, and Gradient Boosting.
-3. A Power BI dashboard can be seen by downloading powerbi_report.pbix.
+*What makes a movie highly rated? How has cinema evolved over decades? This project analyses 95,000+ IMDb titles and Netflix's full catalogue to answer these questions through exploration, machine learning, and an interactive dashboard.*
+
+## What This Project Analyses
+
+1. **exploration.ipynb** — Identifies which countries, directors, and genres dominate Netflix and IMDb; tracks how genre popularity and audience ratings have shifted decade-by-decade from the 1950s to 2020
+2. **ML.ipynb** — Builds a model to predict a movie's IMDb rating using features like genre, director track record, and language. Five regression algorithms are compared (Linear, Ridge, Lasso, Random Forest, Gradient Boosting) — Gradient Boosting achieves the best result with an R² of 0.52 and RMSE of 0.88
+3. **Power BI Dashboard** — Interactive dashboard for drilling into model predictions vs actuals, genre breakdowns, and director performance. Can be opened by downloading `powerbi_report.pbix`
+
+## Key Findings
+
+- Drama is the most produced genre every decade since the 1950s, but its average rating has declined as volume grew
+- `total_votes` is the strongest predictor of IMDb rating (20.9% feature importance) — more popular films tend to rate higher
+- 50.5% of rating predictions land within ±0.5 of the actual score; only 3.6% of predictions are off by more than 2 points
+- The USA dominates Netflix content (4,000+ titles), followed by India and the UK
+- Tree-based models significantly outperform linear models, suggesting non-linear relationships between a film's features and its rating
 
 ## Technologies
 
 - Machine Learning: Python, Scikit-learn
 - Data Handling: SQL, Pandas
-- Visualization: MatPlotLib, Power BI
+- Visualization: Matplotlib, Seaborn, Power BI
 
 ## Setup
 
 1. Download the full CSV datasets from Kaggle:
    - Netflix (1 csv): https://www.kaggle.com/datasets/shivamb/netflix-shows
-   - IMDb (2 csvs): https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
-2. Extract the three CSVs, keeping the same name, and place the CSVs in the `data/` folder
-3. Install dependencies from requirements.txt with "pip install -r requirements.txt"
-4. Run the exploration.ipynb first and then ML.ipynb to first create a SQLite database
-
+   - IMDb (2 csvs): https://www.kaggle.com/datasets/stefanoleone992/imdb-extensive-dataset
+2. Extract the three CSVs, keeping the same names, and place them in the `data/` folder
+3. Install dependencies with `pip install -r requirements.txt`
+4. Run `exploration.ipynb` first, then `ML.ipynb` — the exploration notebook creates the SQLite database that ML.ipynb depends on
